@@ -87,7 +87,12 @@ public_users.get('/title/:title',function (req, res) {
 public_users.get('/review/:isbn',function (req, res) {
   //Write your code here
   const ISBN = req.params.isbn;
-  res.send(books[ISBN].reviews)
+  if(books[ISBN].reviews != ""){
+    res.send(books[ISBN].reviews)
+  }else{
+    res.send("This book does not have reviews");
+  }
+  
 });
 
 // Task 10 
